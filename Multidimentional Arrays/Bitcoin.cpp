@@ -1,3 +1,4 @@
+//Calculates the percentage Change of Bitcoins over the period of six months and stores the values in an array
 #include <iostream>
 #include <assert.h>
 using namespace std;
