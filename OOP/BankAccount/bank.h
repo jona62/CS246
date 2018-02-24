@@ -1,0 +1,51 @@
+class Bank{
+	private:
+		double balance;
+		int acct_No;
+		string name;
+
+	public:
+		Bank();
+		void set_acct_No();
+		void deposit(int amount);
+		void withdraw(int amount);
+		void set_name(string str);
+		int get_balance() const;
+		int get_acct_No() const;
+		string get_name() const;
+};
+
+Bank::Bank(){
+	balance = 0.0;
+	acct_No = get_acct_No();
+}
+
+void Bank::set_acct_No(){
+	srand(time(NULL));
+	int pass = rand()% 20000;
+	acct_No = pass;
+}
+
+void Bank::deposit(int amount){
+	balance += amount;
+}
+
+void Bank::withdraw(int amount){
+	balance -= amount;
+}
+
+void Bank::set_name(string str){
+        name = str;
+}
+
+int Bank::get_balance() const{
+	return balance;
+}
+
+int Bank::get_acct_No() const{
+	return acct_No;
+}
+
+string Bank::get_name() const{
+	return name;
+}
