@@ -18,5 +18,7 @@ int main(){
 
  	cout<<"Welcome "<<customer.get_name()<<"\n Your Account Number is: "<<customer.get_acct_No()<<", and you have $"<<customer.get_balance()<<" in your account. \n";
 
+	
+
 	return 0;
 }
