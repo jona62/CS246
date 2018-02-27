@@ -37,8 +37,9 @@ void Bank::display_info(){
   int amount;
   cout<<"\n\n";
   stringstream out;
-  out<<left<<"1.Cash Deposit"<<setw(60)<<right<<"2.Cash Withdrawal\n\n";
-  out<<left<<"3.Balance Enquiry"<<setw(47)<<right<<"4.Exit\n\n";
+  cout<<"******************************************************************\n";
+  out<<left<<"1.Cash Deposit"<<setw(40)<<right<<"2.Cash Withdrawal\n\n";
+  out<<left<<"3.Balance Enquiry"<<setw(26)<<right<<"4.Exit\n\n";
   out<<"Select your Transaction: ";
   cout<<out.str();
 
@@ -51,8 +52,10 @@ void Bank::display_info(){
       Bank::display_info();
     break;
     case 2:
-      cout<<"Enter amount: ";
+      do{cout<<"Enter amount: ";
       cin>>amount;
+      if(Bank::get_balance() - amount < 0) cout<<"\nYou know thats not possible bruh!\nEnter what you have";
+      }while(Bank::get_balance() - amount < 0);
       Bank::withdraw(amount);
       Bank::display_info();
     break;
