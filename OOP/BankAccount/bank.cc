@@ -4,7 +4,7 @@ Bank::Bank(){
 }
 void Bank::set_acct_No(){
 	srand(time(NULL));
-	int pass = rand()% 20000;
+	int pass = rand()% 2000 + 20000;
 	acct_No = pass;
 }
 
@@ -34,27 +34,38 @@ string Bank::get_name() const{
 
 void Bank::display_info(){
   int choice;
-  cout<<customer.<<"\n\n";
+  int amount;
+  cout<<"\n\n";
   stringstream out;
   out<<left<<"1.Cash Deposit"<<setw(60)<<right<<"2.Cash Withdrawal\n\n";
-  out<<left<<"3.Balance Enquiry"<<setw(59)<<right<<"4.Exit\n\n";
+  out<<left<<"3.Balance Enquiry"<<setw(47)<<right<<"4.Exit\n\n";
   out<<"Select your Transaction: ";
   cout<<out.str();
 
   cin>>choice;
   switch (choice){
     case 1:
+      cout<<"Enter amount: ";
+      cin>>amount;
+      Bank::deposit(amount);
+      Bank::display_info();
     break;
     case 2:
+      cout<<"Enter amount: ";
+      cin>>amount;
+      Bank::withdraw(amount);
+      Bank::display_info();
     break;
     case 3:
+      cout<<"Your Balance is $"<<Bank::get_balance();
+      Bank::display_info();
     break;
     case 4:
     break;
 
     default:
       cout<<"Invalid! Operation Try again ";
-      loggedInterface(customer);
+      Bank::display_info();
   }
 
 }
