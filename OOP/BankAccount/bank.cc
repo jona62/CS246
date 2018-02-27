@@ -31,3 +31,30 @@ int Bank::get_acct_No() const{
 string Bank::get_name() const{
 	return name;
 }
+
+void Bank::display_info(){
+  int choice;
+  cout<<customer.<<"\n\n";
+  stringstream out;
+  out<<left<<"1.Cash Deposit"<<setw(60)<<right<<"2.Cash Withdrawal\n\n";
+  out<<left<<"3.Balance Enquiry"<<setw(59)<<right<<"4.Exit\n\n";
+  out<<"Select your Transaction: ";
+  cout<<out.str();
+
+  cin>>choice;
+  switch (choice){
+    case 1:
+    break;
+    case 2:
+    break;
+    case 3:
+    break;
+    case 4:
+    break;
+
+    default:
+      cout<<"Invalid! Operation Try again ";
+      loggedInterface(customer);
+  }
+
+}
