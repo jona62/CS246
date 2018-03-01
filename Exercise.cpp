@@ -2,9 +2,10 @@
 // Include preconditions and postconditions
 // Include the assert function for testing
 // Detail the test cases you used for the program.
-//
 
 #include <iostream>
+#include <iomanip>
+#include <assert.h>
 using namespace std;
 
 float converter(float feets){
@@ -14,12 +15,19 @@ float converter(float feets){
   return meters;
 }
 
+float converter1(float feets){
+  float meters = feets / 3.28084;
+  return meters;
+}
+
 int main(){
   float feets;
   cout<<"Enter a height in feets :";
   cin>>feets;
   
-  cout<<converter(feets);
+  assert(converter1(feets) == converter(feets));
+  //Printing converted feets in two decimal places
+  cout<<fixed<<setprecision(2)<<converter(feets);
   
   return 0;
 }
