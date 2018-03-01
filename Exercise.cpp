@@ -5,3 +5,21 @@
 //
 
 #include <iostream>
+using namespace std;
+
+float converter(float feets){
+  float meters, inches;
+  inches = feets * 12;
+  meters = inches / 39.3701;
+  return meters;
+}
+
+int main(){
+  float feets;
+  cout<<"Enter a height in feets :";
+  cin>>feets;
+  
+  cout<<converter(feets);
+  
+  return 0;
+}
