@@ -4,6 +4,9 @@ class Point{
     void shift(double dx, double dy);
     double get_x() const;
     double get_y() const;
+    void reset(double dx, double dy);
+    void setYtoX();
+    void setXtoY();
 
     private:
       double x;
