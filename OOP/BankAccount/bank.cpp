@@ -4,7 +4,6 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
-// #include "bank.cc"
 using namespace std;
 #include "bank.cc"
 
