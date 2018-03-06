@@ -1,3 +1,4 @@
+#include "bank.h"
 Bank::Bank(){
 	balance = 0.0;
 	acct_No = get_acct_No();

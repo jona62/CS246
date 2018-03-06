@@ -6,7 +6,7 @@
 #include <iomanip>
 // #include "bank.cc"
 using namespace std;
-#include "bank.h"
+#include "bank.cc"
 
 int main(){
 	string name;
