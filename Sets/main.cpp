@@ -31,5 +31,6 @@ int main(){
   cout<<"\n\n";
   cout<<"Intersection of Array A & Array B :\n";
   Intersection(A,15,B,20);
+  cout<<"\n";
   return 0;
 }
