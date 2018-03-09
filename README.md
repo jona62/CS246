@@ -1,6 +1,6 @@
 # CS246
 
-***Iteration_1 & Iteration_2***
+***Iteration_1 & Iteration_2*** 
   -Contains early exercises for this class
   
 ***OOP***
