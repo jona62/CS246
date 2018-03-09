@@ -15,9 +15,8 @@ int main(){
 
   cout<<"\n\n";
   writeToFile();
-  fillArray(B, 20);
-  sort(B, 20);
   SortAndEliminate();
+  fillArray(B, 20);
 
   cout<<"Array B :\n";
   for(int i=0; i<20; i++){

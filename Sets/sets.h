@@ -85,8 +85,7 @@ void fillArray(int arr[], int size){
   int i=0;
   if(ifile.is_open()){
     while(i<size){
-      ifile>>arr[i];
-      i++;
+      ifile>>arr[i++];
     }
   }
 
