@@ -1,14 +1,26 @@
 class Point{
   public:
-    Point(double init_x=0, double init_y=0);
+    Point(double x = 0, double y = 0);
     void shift(double dx, double dy);
-    double get_x() const;
-    double get_y() const;
     void reset(double dx, double dy);
     void setYtoX();
     void setXtoY();
+    void set_x(double);
+    void set_y(double);
+    double get_x() const;
+    double get_y() const;
 
-    private:
-      double x;
-      double y;
+  protected:
+      double x, y;
+};
+
+class Circle: public Point{
+  private:
+    double radius;
+  public:
+      Circle();
+      Circle(double, double);
+      Circle(double, double, double);
+      void set_radius(double);
+      double get_radius();
 };
