@@ -1,25 +1,27 @@
 #include "bag.h"
 
 int main(){
-  Bag calvinKlein;
+  Bag stack;
 
-  calvinKlein.print();
+  cout<<"All zeros: \n";
+  stack.print();
   cout<<endl;
 
-  srand(time(NULL));
-  for(int i=0; i<SIZE; i++){
-    int randomNum = rand() % 9 + 1;
-    calvinKlein.insert(randomNum);
-  }
+  cout<<"Random Numbers: \n";
+  stack.fillinArray();
 
-  calvinKlein.print();
+  stack.print();
   cout<<endl;
 
-  calvinKlein.remove(1);
-  calvinKlein.remove(1);
-  calvinKlein.remove(1);
+  cout<<"Modified: \n";
+  stack.remove(19);
+  stack.remove(18);
+  stack.remove(17);
 
-  calvinKlein.print();
+  stack.print();
+  stack.deleteArray();
+  cout<<endl;
+  stack.print();
 
 
   return 0;
