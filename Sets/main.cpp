@@ -2,7 +2,6 @@
 
 int main(){
   int A[15], B[20];
-
   writeToFile();
   SortAndEliminate();
   fillArray(A, 15);
@@ -11,7 +10,6 @@ int main(){
   for(int i=0; i<15; i++){
       cout<<A[i]<<" ";
   }
-
 
   cout<<"\n\n";
   writeToFile();
@@ -31,5 +29,6 @@ int main(){
   cout<<"Intersection of Array A & Array B :\n";
   Intersection(A,15,B,20);
   cout<<"\n";
+
   return 0;
 }

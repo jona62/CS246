@@ -14,9 +14,9 @@ int main(){
   cout<<endl;
 
   cout<<"Modified: \n";
-  stack.remove(19);
-  stack.remove(18);
-  stack.remove(17);
+  stack.remove(0);
+  stack.remove(0);
+  stack.remove(0);
 
   stack.print();
   stack.deleteArray();
