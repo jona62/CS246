@@ -11,13 +11,14 @@ using namespace std;
 class Bag{
   public:
     Bag();
-    void insert(int);
-    void remove(int);
-    void print();
     bool isFull();
     bool isEmpty();
-    void shift(int);
     void swap(int&,int&);
+    void insert(int);
+    void remove(int);
+    int size();
+    void print();
+    void shift(int);
     void fillinArray();
     void deleteArray();
   private:

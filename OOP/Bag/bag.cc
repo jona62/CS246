@@ -1,37 +1,11 @@
 #include "bag.h"
+// #include "sets.h"
 
 // Default Constructor that sets count to zero and Every element in the array to zero
 Bag::Bag(){
   count = 0;
   for(int i=0; i<SIZE; i++){
     arr[i] = 0;
-  }
-}
-
-//Inserts an element if Bag is not full and increments the value of count by one
-void Bag::insert(int elem){
-  if(!isFull()){
-    arr[count] = elem;
-    if(count < SIZE){
-      count++;
-    }
-  }
-}
-
-//Removes an element at an index if Bag is not Empty and moves all the elements to the left to that index and decrements count by one
-void Bag::remove(int index){
-  if(!isEmpty() ){
-    count --;
-    shift(index);
-    arr[SIZE-1] = 0;
-  }
-}
-
-// Prints the array
-void Bag::print(){
-  int curren_size = sizeof(arr)/sizeof(arr[0]);
-  for(int i=0; i<curren_size; i++){
-    cout<<arr[i]<<" ";
   }
 }
 
@@ -53,14 +27,45 @@ void Bag::swap(int &x, int &y){
   y = temp;
 }
 
+//Inserts an element if Bag is not full and increments the value of count by one
+void Bag::insert(int elem){
+  if(!isFull()){
+    arr[count] = elem;
+      count++;
+  }
+}
+
+//Removes an element at an index if Bag is not Empty and moves all the elements to the left to that index and decrements count by one
+void Bag::remove(int index){
+  if(!isEmpty()){
+    shift(index);
+    arr[SIZE-1] = 0;
+    count--;
+  }
+}
+
+//Returns the size of array
+int Bag::size(){
+  return count;
+}
+
+// Prints the array
+void Bag::print(){
+  for(int i=0; i<size(); i++){
+    cout<<arr[i]<<" ";
+  }
+}
+
+
 // Shifts the elements of an array to the left
 void Bag::shift(int index){
-  assert(index < SIZE );
-  while(index < SIZE){
+  assert(index >= 0 && index < SIZE);
+  while(index < SIZE-1){
     swap(arr[index], arr[index + 1]);
     index++;
   }
 }
+
 
 // Fills in the array with random numbers betweeen 1 and 9
 void Bag::fillinArray(){

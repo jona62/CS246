@@ -1,28 +1,28 @@
 #include "bag.h"
 
 int main(){
-  Bag stack;
+  Bag bag1;
 
   cout<<"All zeros: \n";
-  stack.print();
+  bag1.print();
   cout<<endl;
 
   cout<<"Random Numbers: \n";
-  stack.fillinArray();
-
-  stack.print();
+  bag1.fillinArray();
+  bag1.print();
   cout<<endl;
 
   cout<<"Modified: \n";
-  stack.remove(0);
-  stack.remove(0);
-  stack.remove(0);
-
-  stack.print();
-  stack.deleteArray();
+  bag1.remove(0);
+  bag1.remove(0);
+  bag1.remove(0);
+  bag1.print();
   cout<<endl;
-  stack.print();
 
+  cout<<"Deleted Array: \n";
+  bag1.deleteArray();
+  bag1.print();
+  cout<<endl;
 
   return 0;
 }
