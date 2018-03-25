@@ -3,9 +3,9 @@
 // Include the assert function for testing
 // Detail the test cases you used for the program.
 //
-
+#define NDEBUG
 #include <iostream>
-#include <assert.h>
+#include <cassert>
 using namespace std;
 
 float converter1(float feets){
