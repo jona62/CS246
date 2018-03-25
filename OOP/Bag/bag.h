@@ -14,6 +14,7 @@ class Bag{
     bool isFull();
     bool isEmpty();
     void swap(int&,int&);
+    void sort();
     void insert(int);
     void remove(int);
     int size();
@@ -21,10 +22,20 @@ class Bag{
     void shift(int);
     void fillinArray();
     void deleteArray();
-  private:
-    int arr[SIZE];
+  protected:
+    int *arr;
     int count;
 };
 
+class Set:public Bag{
+  public:
+    friend void Union(Set, Set);
+    friend void InterSection(Set, Set);
+};
+
+
+ // void InterSection(Set bag1, Set bag2){
+ //
+ // }
 
 #endif //BAG_H
