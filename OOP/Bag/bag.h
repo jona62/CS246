@@ -16,7 +16,7 @@ class Bag{
     void swap(int&,int&);
     void insert(int);
     void remove(int);
-    int size();
+    int  size();
     void print();
     void shift(int);
     void fillinArray();

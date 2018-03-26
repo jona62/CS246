@@ -61,7 +61,6 @@ void SortAndEliminate(){
     while(ifile>>arr[iter]){
       iter++;
     }
-
   }
   ifile.close();
 

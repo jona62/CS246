@@ -1,5 +1,3 @@
-#ifndef POINT_H
-#define POINT_H
 #include "point.h"
 
 Point::Point(double x, double y){
@@ -41,14 +39,16 @@ void Point::setXtoY(){
   x = y;
 }
 
+//Cirle Derived Class
+
 Circle::Circle(){
-  radius = 5;
+  set_radius(5);
 }
 
 Circle::Circle(double x, double y){
   this->x = x;
   this->y = y;
-  radius = 5;
+  set_radius(5);
 }
 
 Circle::Circle(double x, double y, double radius){
@@ -65,4 +65,17 @@ double Circle::get_radius(){
   return radius;
 }
 
-#endif //POINT_H
+double Circle::area(){
+  int area = PI*pow(radius,2);
+  return area;
+}
+
+double Circle::perimeter(){
+  int perimeter = 2 * PI * radius;
+  return perimeter;
+}
+
+double Circle::diameter(){
+  int diameter = radius * 2;
+  return diameter;
+}

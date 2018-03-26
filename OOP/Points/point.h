@@ -1,3 +1,12 @@
+#ifndef POINT_H
+#define POINT_H
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+#define PI 3.14159265359
+using namespace std;
+
+
 class Point{
   public:
     Point(double x = 0, double y = 0);
@@ -23,4 +32,9 @@ class Circle: public Point{
       Circle(double, double, double);
       void set_radius(double);
       double get_radius();
+      double area();
+      double perimeter();
+      double diameter();
 };
+
+#endif // POINT_H
