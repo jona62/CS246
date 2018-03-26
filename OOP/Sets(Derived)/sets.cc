@@ -1,21 +1,23 @@
-#include "bag.h"
+#include "sets.h"
 // #include "sets.h"
 
 // Default Constructor that sets count to zero and Every element in the array to zero
-Bag::Bag():SIZE(20){
+Bag::Bag(){
   count = 0;
   arr = new int [SIZE];
   for(int i=0; i<SIZE; i++){
     arr[i] = 0;
   }
+  SIZE = 20;
 }
 
-Bag::Bag(int size):SIZE(size){
+Bag::Bag(int size){
   count = 0;
   arr = new int [SIZE];
   for(int i=0; i<SIZE; i++){
     arr[i] = 0;
   }
+  SIZE = size;
 }
 
 
@@ -106,4 +108,92 @@ void Bag::deleteArray(){
   for(int i=0; i<SIZE; i++){
     arr[i] = 0;
   }
+}
+
+//Inherited Set class Implementation
+Set::Set(){
+  SIZE = 20;
+  count = 0;
+  arr = new int [SIZE];
+  for(int i=0; i<SIZE; i++){
+    arr[i] = 0;
+  }
+}
+Set::Set(int size){
+  SIZE = size;
+  count = 0;
+  arr = new int [SIZE];
+  for(int i=0; i<SIZE; i++){
+    arr[i] = 0;
+  }
+}
+
+//Friend Function to remove duplicates in an array
+int rmDuplicates(int arr[], int size){
+  int temp[size], i=0;
+  for(int j=0; j<size-1; j++){
+    if(arr[j] != arr[j+1]){
+      temp[i++] = arr[j];
+    }
+  }
+
+ temp[i++] = arr[size-1];
+
+ for(int k=0; k<i; k++){
+   arr[k] = temp[k];
+ }
+ return i;
+}
+
+
+//Friend Function to sort an array
+void sort(int arr[], int size){
+  for(int i=0; i<size; i++)
+    for(int j=0; j<size-i-1; j++){
+    if(arr[j] > arr[j+1])
+     swap(arr[j], arr[j+1]);
+  }
+}
+
+void Union(Set set1, Set set2){
+  int *temp;
+  temp = new int [set1.count + set2.count];
+  int iter = set1.count;
+  for(int i=0; i<set1.count; i++){
+    temp[i] = set1.arr[i];
+  }
+
+  for(int i=0; i<set2.count; i++){
+    temp[iter++] = set2.arr[i];
+  }
+
+  sort(temp, set1.count + set2.count);
+  int newSize = rmDuplicates(temp, set1.count + set2.count);
+
+  cout<<"Union : {";
+  for(int i=0; i<newSize; i++){
+    cout<<temp[i];
+    if(i!=newSize-1)cout<<", ";
+    if(i==newSize-1)cout<<"}";
+  }
+  cout<<endl;
+}
+
+void Intersection(Set set1, Set set2){
+  int size = (set1.count<set2.count) ? set1.count : set2.count;
+  int temp[size], k=0;
+  for(int i=0; i<set1.count; i++){
+    for(int j=0; j<set2.count; j++){
+      if(set1.arr[i] == set2.arr[j]){
+        temp[k++] = set1.arr[i];
+      }
+    }
+  }
+  cout<<"Intersection : {";
+  for(int i=0; i<k; i++){
+    cout<<temp[i];
+    if(i!=k-1)cout<<", ";
+    if(i==k-1)cout<<"}";
+  }
+  cout<<endl;
 }
