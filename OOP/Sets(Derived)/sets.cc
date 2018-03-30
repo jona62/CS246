@@ -11,13 +11,12 @@ Bag::Bag(){
   SIZE = 20;
 }
 
-Bag::Bag(int size){
+Bag::Bag(int size):SIZE(size){
   count = 0;
   arr = new int [SIZE];
   for(int i=0; i<SIZE; i++){
     arr[i] = 0;
   }
-  SIZE = size;
 }
 
 
@@ -111,21 +110,20 @@ void Bag::deleteArray(){
 }
 
 //Inherited Set class Implementation
-Set::Set(){
-  SIZE = 20;
-  count = 0;
-  arr = new int [SIZE];
-  for(int i=0; i<SIZE; i++){
-    arr[i] = 0;
-  }
+Set::Set():Bag(20){
+  // SIZE  = 20;
+  // count = 0;
+  // arr = new int [SIZE];
+  // for(int i=0; i<SIZE; i++){
+  //   arr[i] = 0;
+  // }
 }
-Set::Set(int size){
-  SIZE = size;
-  count = 0;
-  arr = new int [SIZE];
-  for(int i=0; i<SIZE; i++){
-    arr[i] = 0;
-  }
+Set::Set(int size):Bag(size){
+  // count = 0;
+  // arr = new int [SIZE];
+  // for(int i=0; i<SIZE; i++){
+  //   arr[i] = 0;
+  // }
 }
 
 //Friend Function to remove duplicates in an array

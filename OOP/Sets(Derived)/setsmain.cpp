@@ -20,6 +20,7 @@ int main(){
 
   A.print();
   B.print();
+  cout<<endl;
   Union(A, B);
   cout<<endl;
 
@@ -38,7 +39,9 @@ int main(){
 
   A.print();
   B.print();
+  cout<<endl;
   Intersection(A, B);
+  cout<<endl;
 
   return 0;
 }
