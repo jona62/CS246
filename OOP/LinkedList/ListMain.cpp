@@ -20,6 +20,7 @@ int main(){
   list.deleteNode(23);
   list.deleteNode(43);
   list.deleteNode(6);
+
   list.printList();
 
   return 0;

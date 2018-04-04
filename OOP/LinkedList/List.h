@@ -1,6 +1,8 @@
 #ifndef LIST_H
 #define LIST_H
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 class List{
@@ -12,6 +14,7 @@ class List{
 
     nodePtr head;
     nodePtr curr;
+    nodePtr tail;
     nodePtr temp;
 
   public:
@@ -22,7 +25,7 @@ class List{
     void insertRandom(int);
 };
 
-List::List():head(NULL),curr(NULL),temp(NULL){
+List::List():head(NULL),curr(NULL),temp(NULL), tail(NULL){
   /*
   head = NULL;
   curr = NULL;
@@ -32,43 +35,18 @@ List::List():head(NULL),curr(NULL),temp(NULL){
 
 void List::addNode(int addData){
   nodePtr n = new node;
-  n->next = NULL;
-  n->data = addData;
-
-  if(head != NULL){
-    curr = head;
-    while(curr->next != NULL){
-      curr = curr-> next;
-    }
-    curr->next = n;
-  }
-  else{
-    head = n;
-  }
-}
-
-void List::insertRandom(int addData){
-  nodePtr n = new node;
-  n->next = NULL;
-  n->data = addData;
-
-  if(head != NULL){
-    curr = head;
-    while(curr->next != NULL){
-      curr = curr-> next;
-    }
-    if(curr->data < addData){
-    curr->next = n;
-    }
-    if(curr->data > addData){
-      temp = curr;
-
-    }
-  }
-  else{
-    head = n;
-  }
-}
+  n->data=addData;
+  n->next=NULL;
+  if(head==NULL){
+    head=n;
+    tail=n;
+    temp=NULL;
+   }
+   else{
+    tail->next=n;
+    tail=n;
+   }
+ }
 
 void List::deleteNode(int delData){
   nodePtr delPtr = NULL;
