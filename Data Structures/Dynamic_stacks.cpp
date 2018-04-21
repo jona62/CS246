@@ -9,15 +9,22 @@ int main(){
   s.push(4);
   s.push(5);
   s.push(6);
+  /*
+  s => 654321
+  */
   st.push(s.pop());
   st.push(s.pop());
   st.push(s.pop());
   st.push(s.pop());
   st.push(s.pop());
   st.push(s.pop());
+  /*
+  st=> 123456
+  */
+
   cout<<"First Stack"<<endl;
-  s.print();
+  s.print();  // s=> (empty)
   cout<<"Second Stack"<<endl;
-  st.print();
+  st.print(); //st=> 123456
   return 0;
 }
