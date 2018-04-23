@@ -1,13 +1,14 @@
+#include "Dynamic_stacks.h"
 #include "stackprob.h"
 
 int main(){
-  char expression[100];
+  string expression;
   // expression = new char[100];
   cout<<"Enter a Postfix expression: ";
-  cin.getline(expression, 100);
+  getline(cin, expression);
 
   cout<<"The Equivalent in Infix is: ";
-  cout<<convert(expression);
+  convert(expression);
   cout<<endl;
   return 0;
 }
