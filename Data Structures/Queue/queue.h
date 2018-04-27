@@ -1,3 +1,8 @@
+#ifndef QUEUE_H
+#define QUEUE_H
+#include <iostream>
+using namespace std;
+
 class Queue{
   private:
       struct node{
@@ -5,10 +10,12 @@ class Queue{
         node* next;
       };
     node *front;
-    node *back;
+    node *rear;
   public:
     Queue();
     void enqueue(int value);
     void dequeue();
     void print();
 };
+
+#endif //QUEUE_H

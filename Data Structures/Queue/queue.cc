@@ -2,17 +2,16 @@
 
 Queue::Queue(){
   front = NULL;
-  back = NULL;
+  rear = NULL;
 }
 
 void Queue::enqueue(int value){
-  Node *n = new node;
+  node *n = new node;
   n->data = value;
-  n->next = NULL;
   if(front == NULL){
+    n->next  = NULL;
     front = n;
     rear = n;
-    n = nullptr;
   }
   else{
     rear->next = n;

@@ -1,5 +1,6 @@
 #include "Dynamic_stacks.h"
 
+
 int main(){
   Stack<string> s;
   Stack<string> st;
