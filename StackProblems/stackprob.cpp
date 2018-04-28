@@ -8,7 +8,7 @@ int main(){
   getline(cin, expression);
 
   cout<<"The Equivalent in Infix is: ";
-  convert(expression);
+  cout<<convert(expression);
   cout<<endl;
   return 0;
 }
