@@ -1,27 +1,19 @@
-#include "List.h"
+#include <iostream>
+#include "LinkedList.h"
+#include "LinkedList.cc"
+using namespace std;
 
-int main(){
-  List list;
+int main() {
+  LinkedList list;
+  list.push(5);
+  list.push(4);
+  list.push(3);
+  list.push(2);
+  list.push(1);
 
-  list.addNode(30);
-  list.addNode(81);
-  list.addNode(29);
-  list.addNode(51);
-  list.addNode(23);
-  list.addNode(43);
-  list.addNode(6);
-
-  list.printList();
-
-  list.deleteNode(30);
-  list.deleteNode(81);
-  list.deleteNode(29);
-  list.deleteNode(51);
-  list.deleteNode(23);
-  list.deleteNode(43);
-  list.deleteNode(6);
-
-  list.printList();
-
+  list.push_front(6);
+  list.reverse();
+  // list.print();
+  cout<<list.value_at(3);
   return 0;
 }
