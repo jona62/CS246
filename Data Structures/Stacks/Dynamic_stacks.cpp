@@ -9,8 +9,10 @@ int main(){
   s.push("4");
   s.push("5");
   s.push("6");
+
+  s .reverse();
   /*
-  s => 654321
+  s => 123456
   */
   st.push(s.pop());
   st.push(s.pop());
@@ -19,7 +21,7 @@ int main(){
   st.push(s.pop());
   st.push(s.pop());
   /*
-  st=> 123456
+  st=> 654321
   */
 
   cout<<"First Stack"<<endl;

@@ -10,11 +10,12 @@ void Stack<T>::push(T value){
   node* temp = new node;
   temp->data = value;
 
+//If stack is empty top gets the node
   if(isEmpty()){
     temp->next = NULL;
     top = temp;
   }
-  else{
+  else{//else node becomes top and it's next is the address to the previous top
     temp->next = top;
     top = temp;
   }
@@ -27,7 +28,7 @@ T Stack<T>::pop(){
   if(isEmpty()){
     cout<<"Stack is Empty ";
   }
-  else{
+  else{ // deletes top and returns its value
     value = top->data;
     temp = top->next;
     delete top;
@@ -40,7 +41,21 @@ template <class T>
 void Stack<T>::print(){
   node* temp = top;
   while(temp != NULL){
-    cout<<temp->data;
+    cout<<temp->data<<endl;
     temp = temp->next;
   }
+}
+
+template <class T>
+void Stack::reverse() {
+  node *current = top;
+  node *prev = NULL;
+  node *next = NULL;
+  while (current != NULL) {
+    next = current->next;
+    current->next = prev;
+    prev = current;
+    current = next;
+  }
+  top = prev;
 }

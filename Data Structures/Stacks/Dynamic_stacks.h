@@ -17,6 +17,7 @@ class Stack{
     void push(T);
     T pop();
     void print();
+    void reverse();
 };
 
 template <class T>
@@ -65,5 +66,18 @@ void Stack<T>::print(){
   }
 }
 
+template <class T>
+void Stack<T>::reverse() {
+  node *current = top;
+  node *prev = NULL;
+  node *next = NULL;
+  while (current != NULL) {
+    next = current->next;
+    current->next = prev;
+    prev = current;
+    current = next;
+  }
+  top = prev;
+}
 
 #endif //DYNAMICSTACKS_H
