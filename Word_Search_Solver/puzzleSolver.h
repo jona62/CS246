@@ -113,11 +113,11 @@ char **PuzzleSolver::generateMatrix(int row, int col){
   }
 
 PuzzleSolver::PuzzleSolver(): ROW(0), COLUMN(0){
-  memset(this->matrix,0,sizeof(int));
+  this->matrix = generateMatrix(ROW, COLUMN);
 }
 
 PuzzleSolver::PuzzleSolver(int row, int col) : ROW(row), COLUMN(col){
-  this->matrix = generateMatrix(row, col);
+  this->matrix = generateMatrix(ROW, COLUMN);
 }
 
 void PuzzleSolver::fillMatrixWithPuzzle(std::string puzzleChars) {
