@@ -103,34 +103,26 @@ public:
     BST(){
         root = NULL;
     }
-
     ~BST(){
         root = makeEmpty(root);
     }
-
     void insert(int x){
         root = insert(x, root);
     }
-
     void remove(int x){
         root = remove(x, root);
     }
-
-
     void display(){
         inorder(root);
         cout << endl;
     }
-
     void search(int x){
         root = find(root, x);
     }
-
     void maximum(){
       node *t = findMax(root);
       cout<<t->data<<endl;
     }
-
     void minimum(){
       node *t = findMin(root);
       cout<<t->data<<endl;

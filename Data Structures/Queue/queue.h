@@ -5,17 +5,21 @@ using namespace std;
 
 class Queue{
   private:
-      struct node{
-        int data;
-        node* next;
-      };
-    node *front;
-    node *rear;
+    struct Node{
+      int data;
+      Node *next;
+    };
+    Node *front;
+    Node *rear;
+
   public:
     Queue();
-    void enqueue(int value);
-    void dequeue();
+    void enqueue(int);
+    void dequeue(int);
+    void front();
     void print();
+    bool isEmpty();
+
 };
 
 #endif //QUEUE_H

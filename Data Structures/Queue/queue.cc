@@ -6,10 +6,10 @@ Queue::Queue(){
 }
 
 void Queue::enqueue(int value){
-  node *n = new node;
+  Node *n = new Node;
   n->data = value;
+  n->next = NULL;
   if(front == NULL){
-    n->next  = NULL;
     front = n;
     rear = n;
   }
@@ -20,9 +20,9 @@ void Queue::enqueue(int value){
 }
 
 void Queue::print(){
-  node *temp = front;
-  while (temp == NULL) {
-    cout<<temp->data<<endl;
-    temp = temp->next;
+  Node *temp = front;
+  while(temp != NULL){
+    cout<<temp->data<<"\t";
+    temp=temp->next;
   }
 }

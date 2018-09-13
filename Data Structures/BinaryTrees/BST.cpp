@@ -7,7 +7,7 @@ int main(){
       t.insert(i);
     }
 
-    t.display();
-    // t.minimum();
-    // t.maximum();
+    // t.display();
+    t.minimum();
+    t.maximum();
 }
