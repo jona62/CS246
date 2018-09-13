@@ -20,11 +20,7 @@ string convert(string exp){
       s.push(top);
     }
   }
-<<<<<<< HEAD:OOP/StackProblems/stackprob.h
-    return s.pop();
-=======
   return s.pop();
->>>>>>> 06b102439c93d6ce8c62abd2791d17b52d9df4db:StackProblems/stackprob.h
 }
 
 #endif //STACKPROB_H
