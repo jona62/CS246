@@ -1,34 +1,30 @@
 #ifndef PUZZLE_SOLVER
 #define PUZZLE_SOLVER
 #include "utils.h"
-#include "/cslab/home/JonathanJames/CS246/Data Structures/Trie/Trie.h"
+#include "Trie.h"
+using std::stringstream;
+using std::string;
+using std::vector;
+using std::pair;
+using std::cout;
 
-struct Directions {
-  static const std::string UP;
-  static const std::string DOWN;
-  static const std::string LEFT;
-  static const std::string RIGHT;
-  static const std::string DIAG_RIGHT_DOWN;
-  static const std::string DIAG_lEFT_DOWN;
-  static const std::string DIAG_RIGHT_UP;
-  static const std::string DIAG_LEFT_UP;
-};
-
-  const std::string Directions::UP = "up";
-  const std::string Directions::DOWN = "down";
-  const std::string Directions::LEFT = "Left";
-  const std::string Directions::RIGHT = "right";
-  const std::string Directions::DIAG_RIGHT_DOWN = "diag_right_down";
-  const std::string Directions::DIAG_lEFT_DOWN = "diag_left_down";
-  const std::string Directions::DIAG_RIGHT_UP = "diag_right_up";
-  const std::string Directions::DIAG_LEFT_UP = "diag_left_up";
+namespace Directions {
+  const string UP = "up";
+  const string DOWN = "down";
+  const string LEFT = "Left";
+  const string RIGHT = "right";
+  const string DIAG_RIGHT_DOWN = "diag_right_down";
+  const string DIAG_lEFT_DOWN = "diag_left_down";
+  const string DIAG_RIGHT_UP = "diag_right_up";
+  const string DIAG_LEFT_UP = "diag_left_up";
+}
 
 class PuzzleSolver {
   public:
     PuzzleSolver();
     PuzzleSolver(int, int);
-    void fillMatrixWithPuzzle(std::string);
-    std::set<std::string> solvePuzzle(Trie);
+    void fillMatrixWithPuzzle(string);
+    vector<pair<string, pair<pair<int,int>, pair<int,int>>>> solvePuzzle(Trie);
     void printMatrix();
     char **generateMatrix(int, int);
 
@@ -42,36 +38,46 @@ class PuzzleSolver {
       (startY >= 0 && startY < COLUMN));
     }
 
-    void solvePuzzleRecursive(Trie trie, std::set<std::string> &result, string str,
+    void solvePuzzleRecursive(Trie trie, vector<pair<string, pair<pair<int,int>, pair<int,int>>>> &result, string str,
       int startX, int startY) {
-        findWords(trie, result, str, startX, startY, Directions::UP); //Search Up
-        findWords(trie, result, str, startX, startY, Directions::DOWN); //Search Down
-        findWords(trie, result, str, startX, startY, Directions::LEFT); //Search Left
-        findWords(trie, result, str, startX, startY, Directions::RIGHT); //Search Right
-        findWords(trie, result, str, startX, startY, Directions::DIAG_RIGHT_DOWN); //Search Diag_Right_Down
-        findWords(trie, result, str, startX, startY, Directions::DIAG_lEFT_DOWN); //Search Diag_Left_Down
-        findWords(trie, result, str, startX, startY, Directions::DIAG_RIGHT_UP); //Search Diag_Right_Up
-        findWords(trie, result, str, startX, startY, Directions::DIAG_LEFT_UP); //Search Diag_Left_Up
+        pair<pair<int,int>, pair<int,int>> pair_coord;
+        findWords(trie, result, str, pair_coord, startX, startY, Directions::UP, true); 
+        findWords(trie, result, str, pair_coord, startX, startY, Directions::DOWN, true); 
+        findWords(trie, result, str, pair_coord, startX, startY, Directions::LEFT, true); 
+        findWords(trie, result, str, pair_coord, startX, startY, Directions::RIGHT, true); 
+        findWords(trie, result, str, pair_coord, startX, startY, Directions::DIAG_RIGHT_DOWN, true); 
+        findWords(trie, result, str, pair_coord, startX, startY, Directions::DIAG_lEFT_DOWN, true); 
+        findWords(trie, result, str, pair_coord, startX, startY, Directions::DIAG_RIGHT_UP, true); 
+        findWords(trie, result, str, pair_coord, startX, startY, Directions::DIAG_LEFT_UP, true); 
   }
 
-  void findWords(Trie trie, std::set<std::string> &result, string str,
-    int startX, int startY, std::string direction) {
-
+  void findWords(Trie trie, vector<pair<string, pair<pair<int,int>, pair<int,int>>>> &result,
+    string str, pair<pair<int,int>, pair<int,int>> pair_coord, int startX, int startY, string direction, bool mark_start) {
       // Check if startX and startY are in bound
       if(!isSolvable(startX, startY)){
         return;
       }
+
       str += matrix[startX][startY];
-      // Add to array if complete word is found
+
+      if(trie.findPartial(str) && mark_start){
+        pair<int, int> start_coord(startX, startY);
+        pair_coord.first = start_coord;
+        mark_start = false;
+      }
+
       if(trie.find(str)){
-        result.insert(str);
+        pair<int, int> end_coord (startX, startY);
+        pair_coord.second = end_coord;
+        pair<string, pair<pair<int,int>, pair<int,int>>> wordAndCoords(str, pair_coord);
+        result.push_back(wordAndCoords);
         str = "";
       }
       changeDirection(startX, startY, direction);
-      findWords(trie, result, str, startX, startY, direction);
+      findWords(trie, result, str, pair_coord, startX, startY, direction, mark_start);
   }
 
-  void changeDirection(int &startX, int &startY, std::string direction) {
+  void changeDirection(int &startX, int &startY, string direction) {
     if(direction == Directions::UP)
       startX--;
     else if(direction == Directions::DOWN)
@@ -83,16 +89,13 @@ class PuzzleSolver {
     else if(direction == Directions::DIAG_RIGHT_DOWN) {
       startX++;
       startY++;
-    }
-    else if(direction == Directions::DIAG_lEFT_DOWN) {
+    }  else if(direction == Directions::DIAG_lEFT_DOWN) {
       startX++;
       startY--;
-    }
-    else if(direction == Directions::DIAG_RIGHT_UP) {
+    } else if(direction == Directions::DIAG_RIGHT_UP) {
       startX--;
       startY++;
-    }
-    else if(direction == Directions::DIAG_LEFT_UP) {
+    } else if(direction == Directions::DIAG_LEFT_UP) {
       startX--;
       startY--;
     }
@@ -120,7 +123,7 @@ PuzzleSolver::PuzzleSolver(int row, int col) : ROW(row), COLUMN(col){
   this->matrix = generateMatrix(ROW, COLUMN);
 }
 
-void PuzzleSolver::fillMatrixWithPuzzle(std::string puzzleChars) {
+void PuzzleSolver::fillMatrixWithPuzzle(string puzzleChars) {
   assert(puzzleChars.length()-1 == ROW * COLUMN);
   int iter = 0;
     for(int i=0; i<ROW; i++){
@@ -130,8 +133,8 @@ void PuzzleSolver::fillMatrixWithPuzzle(std::string puzzleChars) {
   }
 }
 
-std::set<std::string> PuzzleSolver::solvePuzzle(Trie trie) {
-  std::set<std::string> captureWords ;//= std::set<std::string>();
+vector<pair<string, pair<pair<int,int>, pair<int,int>>>> PuzzleSolver::solvePuzzle(Trie trie) {
+  vector<pair<string, pair<pair<int,int>, pair<int,int>>>> captureWords;
   for(int i=0; i<ROW; i++){
     for(int j=0; j<COLUMN; j++){
       solvePuzzleRecursive(trie, captureWords, "", i, j);
@@ -141,11 +144,19 @@ std::set<std::string> PuzzleSolver::solvePuzzle(Trie trie) {
 }
 
 void PuzzleSolver::printMatrix(){
+  stringstream ss;
+  ofstream ofile;
+  ofile.open("Solved.txt");
   for(int i=0; i<ROW; i++){
     for(int j=0; j<COLUMN; j++){
-      std::cout<<matrix[i][j]<<" ";
+      cout<<matrix[i][j]<<" ";
+      ss<<matrix[i][j]<<" ";
     }
-    std::cout<<std::endl;
+    cout<<"\n";
+    ss <<"\n";
+  }
+  if(ofile.is_open()){
+    ofile<<ss.str();
   }
 }
 

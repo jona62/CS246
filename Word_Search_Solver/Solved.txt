@@ -1,48 +1,68 @@
-ALBINOS
-ALPACA
-ALUMNAE
-ARCH
-BEETLE
-BIGOT
-BRUTISHLY
-BUFF
-BYLAWS
-CHOIR
-DISHES
-ELITE
-FELL
-FLATTERER
-FLESHLY
-GASEOUS
-GNU
-GRADS
-INTI
-ISLE
-KAPUT
-LISP
-NEWTS
-OAFS
-PEWS
-REACT
-SALE
-SCRAPE
-SHOE
-SKEINS
-SKIRMISHING
-SPIKIER
-SPLICES
-STAG
-STARLESS
-SULFURS
-THEFT
-TURPITUDE
-USURER
-VASECTOMIES
-VERDIGRISES
-VILE
-WARDER
-WARDROOM
-WIGHT
-YOGI
-ZEALOT
-ZIPPER
+O S L V E R D I G R I S E S S Y 
+Z I P P E R S N E W T S S E L L 
+U S K I R M I S H I N G I H S H 
+S N I E K S K Y O G I M S S O S 
+E F G P L I S P C H O I R I N E 
+V L E E E Q E H S T T E V D I L 
+S W A L Y B Q R C U D V S I B F 
+S A N S L Z B E R R B E E T L E 
+E R M I E U S B A P A Y C H A E 
+L D U A F A G W P I K Z I E R N 
+R R L F V R E R E T T A L F E O 
+A O A A L P A C A U F I P T A A 
+T O G I B U X T S D T Y S U C F 
+S M R E R U S U O E S A G A T S 
+
+Found Words
+
+Word			 Word Start			 Word End
+SPIKIER			[0, 1]			[6, 7]
+VERDIGRISES			[0, 3]			[0, 13]
+ZIPPER			[1, 0]			[1, 5]
+NEWTS			[1, 7]			[1, 11]
+WIGHT			[1, 9]			[5, 9]
+SHOE			[1, 12]			[4, 15]
+SKIRMISHING			[2, 1]			[2, 11]
+ISLE			[2, 6]			[5, 3]
+SKEINS			[3, 5]			[3, 0]
+YOGI			[3, 7]			[3, 10]
+INTI			[3, 10]			[0, 10]
+FELL			[4, 1]			[7, 4]
+GNU			[4, 2]			[2, 0]
+PEWS			[4, 3]			[7, 0]
+LISP			[4, 4]			[4, 7]
+CHOIR			[4, 4]			[4, 12]
+CHOIR			[4, 8]			[4, 12]
+SCRAPE			[5, 8]			[10, 8]
+TURPITUDE			[5, 9]			[13, 9]
+VILE			[5, 12]			[8, 15]
+DISHES			[5, 13]			[0, 13]
+WARDROOM			[6, 1]			[13, 1]
+BYLAWS			[6, 5]			[6, 0]
+FLESHLY			[6, 15]			[0, 15]
+SALE			[7, 3]			[4, 0]
+ZEALOT			[7, 5]			[12, 0]
+BUFF			[7, 6]			[10, 3]
+BEETLE			[7, 10]			[7, 15]
+THEFT			[7, 13]			[11, 13]
+ISLE			[8, 3]			[5, 3]
+BRUTISHLY			[8, 7]			[0, 15]
+ARCH			[8, 10]			[5, 7]
+ALBINOS			[8, 14]			[2, 14]
+GRADS			[9, 6]			[13, 10]
+WARDER			[9, 7]			[4, 12]
+KAPUT			[9, 10]			[13, 14]
+ELITE			[9, 13]			[13, 9]
+REACT			[9, 14]			[13, 14]
+VASECTOMIES			[10, 4]			[0, 14]
+FLATTERER			[10, 13]			[10, 5]
+OAFS			[10, 15]			[13, 15]
+ALUMNAE			[11, 2]			[5, 2]
+ALPACA			[11, 3]			[11, 8]
+BIGOT			[12, 4]			[12, 0]
+SPLICES			[12, 12]			[6, 12]
+STARLESS			[13, 0]			[6, 0]
+SULFURS			[13, 6]			[7, 0]
+USURER			[13, 7]			[13, 2]
+GASEOUS			[13, 12]			[13, 6]
+STAG			[13, 15]			[13, 12]

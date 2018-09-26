@@ -10,7 +10,9 @@
 #include <algorithm>
 #include <locale>
 #include <set>
-
+#include <sstream>
+#include <iomanip>
+#include <utility>      // std::pair, std::make_pair
 using namespace std;
 
 struct FileOperations {
@@ -60,14 +62,23 @@ struct FileOperations {
     return result;
   }
 
-  static void save_words_to_file(std::set<std::string> word_list) {
+  static void save_words_to_file(std::vector<std::pair<std::string, std::pair<std::pair<int,int>, std::pair<int,int>>>> word_list) {
     std::ofstream ofile;
-    ofile.open("Solved.txt");
+    ofile.open("Solved.txt", ofstream::app);
     if(ofile.is_open()){
-      for(std::set<std::string>::iterator it = word_list.begin(); it  != word_list.end(); it++) {
-        ofile << *it << std::endl;
+      std::vector<std::pair<std::string, std::pair<std::pair<int,int>, std::pair<int,int>>>>::iterator it;
+      stringstream ss;
+      ss <<"\nFound Words\n\n";
+      ss <<"Word\t\t\t Word Start\t\t\t Word End\n";
+      for(it = word_list.begin(); it  != word_list.end(); it++) {
+        ss << it->first;
+        pair<pair<int,int>, pair<int,int>> coords = it->second;
+        ss <<"\t\t\t["<<coords.first.first<<", "<<coords.first.second<<"]";
+        ss <<"\t\t\t["<<coords.second.first<<", "<<coords.second.second<<"]\n";
       }
+      ofile << ss.str();
     }
+    ofile.close();
   }
 
 };
