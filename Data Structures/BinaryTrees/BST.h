@@ -116,8 +116,12 @@ public:
         inorder(root);
         cout << endl;
     }
-    void search(int x){
-        root = find(root, x);
+    bool search(int x){
+        Node *ptr = find(root, x);
+        if(!ptr) {
+            return false;
+        }
+        return true;
     }
     void maximum(){
       node *t = findMax(root);
