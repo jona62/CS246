@@ -1,22 +1,18 @@
 #include <iostream>
-#include <ctime>
+#include <cstdio>
 #include "clock.h"
 using namespace std;
 
 int main(){
-  time_t curr_time;
-  curr_time = time(NULL);
-  tm *tm_local = localtime(&curr_time);
-  int hour = tm_local->tm_hour;
-  int min = tm_local->tm_min;
-  int sec = tm_local->tm_sec;
-
-  Clock time;
-  time.set_hour(hour);
-  time.set_minute(min);
-  time.set_sec(sec);
-
-  cout<<time.current_hour()<<":"<<time.current_minute()<<":"<<time.current_sec()<<endl;
+  Clock c;
   
+  while(true) {
+    system("clear");
+    cout << c.current_hour() << ":";
+    cout << c.current_minute() << ":";
+    cout << c.current_sec() << "\n";
+    c.set_interval(1);
+  }
+
   return 0;
 }

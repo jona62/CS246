@@ -1,14 +1,17 @@
-class Clock{
+#include <ctime>
+
+class Clock {
   private:
-    int hour;
-    int minute;
-    int sec;
+    static tm* time_seed() {
+      time_t curr_time;
+      curr_time = time(NULL);
+      tm *tm_local = localtime(&curr_time);  
+      return tm_local;
+    }
+
   public:
-    Clock();
-    void set_hour(int x);
-    void set_minute(int x);
-    void set_sec(int x);
     int current_hour();
     int current_minute();
     int current_sec();
+    void set_interval(int);
 };
